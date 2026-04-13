@@ -1,11 +1,226 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="en" class="navy">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Research Website</title>
+
+    <!--External CSS-->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--Internal CSS-->
+    <style>
+      .hero {
+        background-color: var(--quote-bg);
+        border-left: 4px solid var(--sidebar-active);
+        padding: 2rem 2.5rem;
+        margin-bottom: 2rem;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--fg);
+      }
+
+      .hero .meta {
+        font-size: 1.4rem;
+        color: var(--icons);
+      }
+
+      .member-list {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 2rem;
+      }
+
+      .member-list li {
+        background-color: var(--quote-bg);
+        border: 1px solid var(--table-border-color);
+        border-radius: 6px;
+        padding: 0.6rem 1.2rem;
+        font-size: 1.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Input -->
+    <input type="checkbox" id="sidebar-toggle-anchor" checked />
+
+    <!--SideBar-->
+    <nav class="sidebar">
+      <div class="sidebar-scrollbox">
+        <ol class="chapter">
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="index.html" class="active"> Home </a>
+            </span>
+          </li>
+
+          <li class="spacer"></li>
+
+          <!--Background SideBar Link -->
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="background.html">Background of the Study</a>
+            </span>
+          </li>
+
+          <!--Problem & Objectives SideBar Link -->
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="problem.html">Problem &amp; Objectives</a>
+            </span>
+          </li>
+
+          <!--Scope & Limitations SideBar Link -->
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="scope.html">Scope &amp; Limitation</a>
+            </span>
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!--Page Wrapper -->
+    <div class="page-wrapper">
+      <!--Top Menu Bar -->
+      <div class="menu-bar">
+        <div class="left-buttons">
+          <label class="icon-button" for="sidebar-toggle-anchor">
+            <img src="images/menu.svg" alt="menu" />
+          </label>
+        </div>
+
+        <h1 class="menu-title">Research Website</h1>
+
+        <div class="right-buttons"></div>
+      </div>
+
+      <!--Wide Nav Arrows -->
+      <nav class="nav-wide-wrapper" aria-label="Page navigation">
+        <!--Previous Arrow -->
+        <a
+          href="scope.html"
+          class="nav-chapters previous"
+          title="Previous chapter"
+        >
+          <img src="images/chevron-left.svg" alt="previous" />
+        </a>
+        <!--Next Arrow -->
+        <a
+          href="background.html"
+          class="nav-chapters next"
+          title="Previous chapter"
+        >
+          <img src="images/chevron-right.svg" alt="next" />
+        </a>
+      </nav>
+
+      <!--Main Page -->
+      <div class="page">
+        <div id="content">
+          <main>
+            <!--Hero Section -->
+            <div class="hero">
+              <h2>
+                A Comparative Study on the Effect of Moringa (Moringa oleifera),
+                Tamarind (Tamarindus indica), and Jackfruit (Artocarpus
+                heterophyllus) Seed Extracts on Water Turbidity (NTU), Dissolved
+                Oxygen (mg/L), pH, and Treatment Time (hours) in Solar Water
+                Disinfection (SODIS) Using Poso Water (Manual Water Pump)
+              </h2>
+              <p class="meta" style="letter-spacing: 0.03em">
+                Grade 8 &nbsp; &nbsp; Section CTM &nbsp; &nbsp; SY 2025-2026
+              </p>
+            </div>
+
+            <!--Member List -->
+            <ul class="member-list">
+              <li>
+                Ranara, Ramil Xian, Pilares, Caleb, (Palad, Tyler, Alcudia,
+                Vigo)
+              </li>
+            </ul>
+
+            <h2 id="introduction">Introduction</h2>
+            <div class="note">
+              <p style="padding: 0.8rem 0">
+                <strong>Research topic:</strong> This study evaluates the
+                effectiveness of Moringa oleifera, Tamarindus indica, and
+                Artocarpus heterophyllus seed extracts as natural coagulants to
+                enhance Solar Water Disinfection (SODIS) of untreated water.
+                Using a quantitative experimental design with PASCO sensors, the
+                study monitors changes in turbidity, dissolved oxygen, and pH
+                over six hours of sunlight exposure. Moringa is hypothesized to
+                be the most effective coagulant due to its superior properties.
+                The findings aim to provide a sustainable, low-cost water
+                treatment solution to improve public health in resource-limited
+                communities where safe drinking water is scarce.
+
+              <p><strong>Keywords:</strong> solar
+                water disinfection, natural coagulants, water turbidity, moringa
+                seeds, water quality
+              </p>
+              </p>
+            </div>
+
+            <h2 id="about">About this Website</h2>
+
+            <p>
+              This website was built to give way for our research project to be
+              known and to another source of literature other than our
+              manuscript.
+            </p>
+            <p>
+              Use the sidebar on the left to navigate between section of the
+              research proposal The arrows on the right side of the screen will
+              take you to the next chapter
+            </p>
+
+            <p>
+              This site was built for
+              <span style="color: var(--sidebar-active); font-weight: bold">
+                COMP 8 - Major Assesment 4
+              </span>
+            </p>
+          </main>
+
+          <nav class="nav-wrapper" aria-label="Page navigation">
+            <a
+              href="scope.html"
+              class="mobile-nav-chapters previous"
+              title="Previous chapter"
+              aria-label="Previous chapter"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path
+                  d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                />
+              </svg>
+            </a>
+            <a
+              href="background.html"
+              class="mobile-nav-chapters next"
+              title="Next chapter"
+              aria-label="Next chapter"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path
+                  d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                />
+              </svg>
+            </a>
+            <div style="clear: both"></div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
