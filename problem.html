@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" class="navy">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Research Website</title>
+
+    <!--External CSS-->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!--Internal CSS-->
+    <style>
+      .hero {
+        background-color: var(--quote-bg);
+        border-left: 4px solid var(--sidebar-active);
+        padding: 2rem 2.5rem;
+        margin-bottom: 2rem;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--fg);
+      }
+
+      .hero .meta {
+        font-size: 1.4rem;
+        color: var(--icons);
+      }
+
+      .member-list {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 2rem;
+      }
+
+      .member-list li {
+        background-color: var(--quote-bg);
+        border: 1px solid var(--table-border-color);
+        border-radius: 6px;
+        padding: 0.6rem 1.2rem;
+        font-size: 1.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Input -->
+    <input type="checkbox" id="sidebar-toggle-anchor" checked />
+
+    <!--SideBar-->
+    <nav class="sidebar">
+      <div class="sidebar-scrollbox">
+        <ol class="chapter">
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="index.html" class="active"> Home </a>
+            </span>
+          </li>
+
+          <li class="spacer"></li>
+
+          <!--Background SideBar Link -->
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="background.html">Background of the Study</a>
+            </span>
+          </li>
+
+          <!--Problem & Objectives SideBar Link -->
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="problem.html">Problem &amp; Objectives</a>
+            </span>
+          </li>
+
+          <!--Scope & Limitations SideBar Link -->
+          <li class="chapter-item">
+            <span class="chapter-link-wrapper">
+              <a href="scope.html">Scope &amp; Limitation</a>
+            </span>
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!--Page Wrapper -->
+    <div class="page-wrapper">
+      <!--Top Menu Bar -->
+      <div class="menu-bar">
+        <div class="left-buttons">
+          <label class="icon-button" for="sidebar-toggle-anchor">
+            <img src="images/menu.svg" alt="menu" />
+          </label>
+        </div>
+
+        <h1 class="menu-title">Research Website</h1>
+
+        <div class="right-buttons"></div>
+      </div>
+
+      <!--Wide Nav Arrows -->
+      <nav class="nav-wide-wrapper" aria-label="Page navigation">
+        <!--Previous Arrow -->
+        <a
+            href="scope.html"
+            class="nav-chapters previous"
+            title="Previous chapter"
+            >
+            <img src="images/chevron-left.svg" alt="previous" />
+        </a>
+          <!--Next Arrow -->
+          <a
+              href="background.html"
+              class="nav-chapters next"
+              title="Previous chapter"
+              >
+              <img src="images/chevron-right.svg" alt="next" />
+          </a>
+      </nav>
+
+      <!--Main Page -->
+      <div class="page">
+        <div id="content">
+          <main>
+            <h2 id="introduction">Problem Statement</h2>
+            <div class="note">
+              <p style="padding: 0.8rem 0; text-align: justify">
+              The purpose of this study is to determine and compare the effects 
+              of moringa (M. oleifera), tamarind (T. indica), and jackfruit (A. 
+              heterophyllus)  seed extracts on water turbidity (NTU), dissolved oxygen 
+              (mg/L), and pH when used in solar water disinfection of Poso water (manual 
+              water pump), with a treatment duration of 6 hours, while using positive 
+              control (distilled water) and negative control (untreated poso water) setups.
+              </p>
+            </div>
+            <h2 id="introduction">Objectives</h2>
+            <div class="note">
+              <p style="padding: 0.8rem 0; text-align: justify">
+              This study aims to achieve the following objectives: 
+              <ol type="1" style="text-align: justify"> 
+                <li>
+                  To measure the turbidity (NTU), dissolved oxygen (mg/L), and pH of Poso water 
+                  during 6 hours of Solar Water Disinfection (SODIS) with the application of 
+                  moringa (M. oleifera), tamarind (T. indica), and jackfruit (A. heterophyllus)  
+                  seed extracts.
+                </li>
+
+                <li>
+                  To compare the effectiveness of the three seed extracts in
+                  improving water quality parameters after 6 hours of
+                  SODIS against positive and negative control setups.
+                </li>
+              </p>
+            </div>
+            <h2 id="introduction">Hypothesis</h2>
+            <div class="note">
+            <p style="padding: 0.8rem 0; text-align: justify">
+                  If moringa (M. oleifera), tamarind (T. indica), and jackfruit (A. heterophyllus)
+                  seed extracts are used as natural coagulants
+                  during 6 hours of Solar Water Disinfection (SODIS),
+                  then turbidity will decrease while maintaining stable pH and dissolved oxygen
+                  levels.
+            </p>
+        </div>
+          </main>
+
+          <nav class="nav-wrapper" aria-label="Page navigation">
+            <a
+                href="scope.html"
+                class="mobile-nav-chapters previous"
+                title="Previous chapter"
+                aria-label="Previous chapter"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path
+                      d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                      />
+                </svg>
+            </a>
+            <a
+                href="background.html"
+                class="mobile-nav-chapters next"
+                title="Next chapter"
+                aria-label="Next chapter"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path
+                      d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                      />
+                </svg>
+            </a>
+            <div style="clear: both"></div>
+          </nav>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

@@ -484,3 +484,8 @@ pre > code {
     left: var(--sidebar-width);
   }
 }
+
+.images {
+  border-radius: 10px;
+}
+
