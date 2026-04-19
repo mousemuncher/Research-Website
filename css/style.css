@@ -1,56 +1,81 @@
+/* ============================================================
+   GLOBAL VARIABLES
+   These are reusable values (like colors and sizes) stored
+   under a name so you only have to change them in one place.
+   "rem" = relative to the root font size (set to 10px below,
+   so 1.6rem = 16px). "em" = relative to the current element.
+   ============================================================ */
 
 :root {
+  /* Makes 1rem = 10px, so math is easier (e.g. 1.6rem = 16px) */
   font-size: 62.5%;
-  --sidebar-width: 300px;
-  --menu-bar-height: 50px;
-  --page-padding: 15px;
-  --content-max-width: 750px;
+
+  --sidebar-width: 300px;      /* How wide the left sidebar panel is */
+  --menu-bar-height: 50px;     /* Height of the top bar */
+  --page-padding: 15px;        /* Space on left/right of the page */
+  --content-max-width: 750px;  /* Main text won't stretch wider than this */
   --mono-font: "Source Code Pro", Consolas, "Ubuntu Mono", monospace;
   --code-font-size: 0.875em;
 }
 
+/* ============================================================
+   LIGHT THEME COLORS  (default / white background)
+   These color variables get used throughout the file via var().
+   ============================================================ */
 html {
-  --bg: hsl(0, 0%, 100%);
-  --fg: hsl(0, 0%, 0%);
-  --sidebar-bg: #fafafa;
-  --sidebar-fg: hsl(0, 0%, 0%);
-  --sidebar-non-existant: #aaaaaa;
-  --sidebar-active: #1f1fff;
-  --sidebar-spacer: #f4f4f4;
-  --scrollbar: #8f8f8f;
-  --icons: #747474;
-  --icons-hover: #000000;
-  --links: #20609f;
-  --inline-code-color: #301900;
-  --theme-hover: #e6e6e6;
-  --quote-bg: hsl(197, 37%, 96%);
-  --quote-border: hsl(197, 37%, 91%);
-  --table-border-color: hsl(0, 0%, 95%);
-  --table-header-bg: hsl(0, 0%, 80%);
-  --table-alternate-bg: hsl(0, 0%, 97%);
+  --bg: hsl(0, 0%, 100%);           /* Page background — white */
+  --fg: hsl(0, 0%, 0%);             /* Main text color — black */
+  --sidebar-bg: #fafafa;            /* Sidebar background — off-white */
+  --sidebar-fg: hsl(0, 0%, 0%);    /* Sidebar text — black */
+  --sidebar-non-existant: #aaaaaa; /* Gray for links that don't exist yet */
+  --sidebar-active: #1f1fff;       /* Blue highlight for the current page link */
+  --sidebar-spacer: #f4f4f4;       /* Color of the thin divider line in sidebar */
+  --scrollbar: #8f8f8f;            /* Scrollbar color */
+  --icons: #747474;                /* Default gray for icons (hamburger, arrows) */
+  --icons-hover: #000000;          /* Icon color when you hover over them — black */
+  --links: #20609f;                /* Blue for clickable links in the content */
+  --inline-code-color: #301900;   /* Dark brown for inline code text */
+  --theme-hover: #e6e6e6;          /* Light gray background shown on hover */
+  --quote-bg: hsl(197, 37%, 96%);  /* Very light blue for note/quote boxes */
+  --quote-border: hsl(197, 37%, 91%);       /* Slightly darker blue for quote borders */
+  --table-border-color: hsl(0, 0%, 95%);    /* Light gray table cell borders */
+  --table-header-bg: hsl(0, 0%, 80%);       /* Gray background for table headers */
+  --table-alternate-bg: hsl(0, 0%, 97%);   /* Slightly off-white for every other table row */
 }
 
+/* ============================================================
+   DARK / NAVY THEME COLORS
+   When <html class="navy"> is set, these override the light
+   theme colors above. Everything else stays the same.
+   ============================================================ */
 html.navy {
-  --bg: hsl(226, 23%, 11%);
-  --fg: #bcbdd0;
-  --sidebar-bg: #282d3f;
-  --sidebar-fg: #c8c9db;
-  --sidebar-non-existant: #505274;
-  --sidebar-active: #2b79a2;
-  --sidebar-spacer: #2d334f;
-  --scrollbar: var(--sidebar-fg);
-  --icons: #737480;
-  --icons-hover: #b7b9cc;
-  --links: #2b79a2;
-  --inline-code-color: #c5c8c6;
-  --theme-hover: #282e40;
-  --quote-bg: hsl(226, 15%, 17%);
-  --quote-border: hsl(226, 15%, 22%);
-  --table-border-color: hsl(226, 23%, 16%);
-  --table-header-bg: hsl(226, 23%, 31%);
-  --table-alternate-bg: hsl(226, 23%, 14%);
+  --bg: hsl(226, 23%, 11%);         /* Dark navy page background */
+  --fg: #bcbdd0;                     /* Light gray text */
+  --sidebar-bg: #282d3f;            /* Darker navy sidebar */
+  --sidebar-fg: #c8c9db;            /* Light lavender sidebar text */
+  --sidebar-non-existant: #505274; /* Muted purple for missing links */
+  --sidebar-active: #2b79a2;       /* Teal-blue for active page link */
+  --sidebar-spacer: #2d334f;       /* Dark divider line */
+  --scrollbar: var(--sidebar-fg);  /* Scrollbar matches sidebar text color */
+  --icons: #737480;                 /* Muted gray icons */
+  --icons-hover: #b7b9cc;          /* Lighter gray on hover */
+  --links: #2b79a2;                 /* Teal-blue links */
+  --inline-code-color: #c5c8c6;   /* Light gray code text */
+  --theme-hover: #282e40;          /* Hover background for dark theme */
+  --quote-bg: hsl(226, 15%, 17%);  /* Dark note/quote box background */
+  --quote-border: hsl(226, 15%, 22%);       /* Slightly lighter border for quotes */
+  --table-border-color: hsl(226, 23%, 16%); /* Dark table borders */
+  --table-header-bg: hsl(226, 23%, 31%);    /* Medium-dark table header */
+  --table-alternate-bg: hsl(226, 23%, 14%); /* Slightly lighter alternate rows */
 }
 
+/* ============================================================
+   RESET
+   Browsers add default margin/padding to elements. This removes
+   all of that so we start from zero and control everything ourselves.
+   box-sizing: border-box means padding and border are included
+   inside an element's width/height, which is easier to work with.
+   ============================================================ */
 *,
 *::before,
 *::after {
@@ -59,24 +84,36 @@ html.navy {
   padding: 0;
 }
 
+/* ============================================================
+   BASE HTML & BODY STYLES
+   ============================================================ */
 html {
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Open Sans", Arial, sans-serif; /* Main font for the whole page */
   color: var(--fg);
   background-color: var(--bg);
-  scrollbar-color: var(--scrollbar) transparent;
+  scrollbar-color: var(--scrollbar) transparent; /* Styles the browser scrollbar */
 }
 
 body {
-  font-size: 1.6rem;
-  overflow-x: hidden;
+  font-size: 1.6rem;   /* 16px — comfortable reading size */
+  overflow-x: hidden;  /* Hides the horizontal scrollbar so the page doesn't scroll sideways */
 }
 
+/* ============================================================
+   SIDEBAR TOGGLE  (the checkbox trick)
+   The sidebar open/close uses a hidden checkbox.
+   Clicking the hamburger menu label checks/unchecks it,
+   and CSS uses :checked to show or hide the sidebar.
+   ============================================================ */
+
+/* The checkbox itself is invisible — it's only used to track state */
 #sidebar-toggle-anchor {
   display: none;
 }
 
+/* The sidebar panel on the left side */
 .sidebar {
-  position: fixed;
+  position: fixed;    /* Stays in place even when you scroll */
   left: 0;
   top: 0;
   bottom: 0;
@@ -85,12 +122,13 @@ body {
   color: var(--sidebar-fg);
   font-size: 0.875em;
   overflow: hidden;
-  z-index: 200;
-  transition: transform 0.3s;
+  z-index: 200;          /* Sits on top of most other elements */
+  transition: transform 0.3s; /* Smooth slide animation */
 }
 
+/* The scrollable area inside the sidebar */
 .sidebar-scrollbox {
-  overflow-y: auto;
+  overflow-y: auto;  /* Adds a scrollbar inside the sidebar if content is too tall */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -99,18 +137,26 @@ body {
   padding: 10px 10px;
 }
 
+/* When the checkbox is NOT checked, slide the sidebar off-screen to the left */
 #sidebar-toggle-anchor:not(:checked) ~ .sidebar {
   transform: translateX(calc(0px - var(--sidebar-width)));
 }
 
+/* On screens wider than 620px, push the main content right to make room for the open sidebar */
 @media only screen and (min-width: 620px) {
   #sidebar-toggle-anchor:checked ~ .page-wrapper {
     margin-left: var(--sidebar-width);
   }
 }
 
+/* ============================================================
+   SIDEBAR NAVIGATION LIST
+   The list of chapter/page links inside the sidebar.
+   ============================================================ */
+
+/* The <ol> list of chapters */
 .chapter {
-  list-style: none;
+  list-style: none; /* Removes the default numbered list style */
   padding-left: 0;
   line-height: 2.2em;
 }
@@ -125,31 +171,23 @@ body {
   display: flex;
 }
 
+/* Links inside the chapter list */
 .chapter li a {
-  text-decoration: none;
+  text-decoration: none;       /* No underline */
   color: var(--sidebar-fg);
-  transition: color 0.2s;
+  transition: color 0.2s;      /* Color fades smoothly on hover */
 }
 
 .chapter li a:hover {
-  color: var(--sidebar-active);
+  color: var(--sidebar-active); /* Turn blue on hover */
 }
 
+/* The link for the page you're currently on */
 .chapter li a.active {
   color: var(--sidebar-active);
 }
 
-.chapter li.part-title {
-  font-weight: bold;
-  margin: 5px 0;
-}
-
-.section {
-  list-style: none;
-  padding-left: 20px;
-  line-height: 1.9em;
-}
-
+/* The thin horizontal divider bar in the sidebar */
 .spacer {
   width: 100%;
   height: 3px;
@@ -157,14 +195,22 @@ body {
   background-color: var(--sidebar-spacer);
 }
 
+/* ============================================================
+   PAGE WRAPPER
+   The container that holds everything except the sidebar.
+   It slides right when the sidebar opens (on desktop).
+   ============================================================ */
 .page-wrapper {
   background-color: var(--bg);
-  transition: margin-left 0.3s ease;
-  min-height: 100vh;
+  transition: margin-left 0.3s ease; /* Smooth shift when sidebar opens/closes */
+  min-height: 100vh;                  /* Always at least as tall as the screen */
 }
 
+/* ============================================================
+   TOP MENU BAR  (the bar at the very top with the hamburger)
+   ============================================================ */
 .menu-bar {
-  position: sticky;
+  position: sticky; /* Sticks to the top of the screen as you scroll down */
   top: 0;
   z-index: 101;
   display: flex;
@@ -175,17 +221,19 @@ body {
   padding: 0 var(--page-padding);
 }
 
+/* Group of buttons on the left side of the menu bar (hamburger icon) */
 .left-buttons {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
+/* The clickable hamburger/icon button */
 .icon-button {
   border: none;
   background: none;
   color: var(--icons);
-  cursor: pointer;
+  cursor: pointer;   /* Shows a hand cursor on hover */
   padding: 0 8px;
   line-height: var(--menu-bar-height);
   font-size: 1.6rem;
@@ -198,64 +246,78 @@ body {
   color: var(--icons-hover);
 }
 
-.icon-button svg {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
+/* Image icons (like menu.svg) inside icon buttons */
+.icon-button img {
+  width: 1.2em;
+  height: 1.2em;
+  transition: filter 0.2s;
 }
 
+/* Darken the image icon to black on hover */
+.icon-button:hover img {
+  filter: brightness(0);
+}
+
+/* The site title in the center of the menu bar */
 .menu-title {
-  flex: 1;
+  flex: 1;              /* Takes up all leftover space, pushing buttons to the edges */
   text-align: center;
   font-size: 2.4rem;
-  font-weight: 200;
-  white-space: nowrap;
+  font-weight: 200;     /* Thin font weight */
+  white-space: nowrap;  /* Prevents the title from wrapping to a second line */
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; /* Adds "..." if the title is too long to fit */
   color: var(--fg);
 }
 
+/* Group of buttons on the right side of the menu bar (currently empty) */
 .right-buttons {
   display: flex;
   align-items: center;
   margin-right: 8px;
 }
 
+/* ============================================================
+   MAIN CONTENT AREA
+   ============================================================ */
+
+/* Outer padding wrapper around the content */
 .page {
   padding: 0 var(--page-padding);
 }
 
+/* The scrollable content area */
 #content {
   overflow-y: auto;
   padding: 0 5px 50px 5px;
 }
 
+/* The <main> tag — centered with a max width so lines don't get too long to read */
 #content main {
   margin: 0 auto;
   max-width: var(--content-max-width);
 }
 
+/* Paragraphs, lists, and their spacing */
 #content p {
-  line-height: 1.7;
+  line-height: 1.7;      /* Space between lines — 1.7x the font size */
   margin-bottom: 1.2em;
 }
 #content ol {
   line-height: 1.7;
   margin-bottom: 1.2em;
-  margin-left: 1.5em;
+  margin-left: 1.5em;    /* Indent numbered lists */
 }
 #content ul {
   line-height: 1.7;
   margin-bottom: 1.2em;
-  margin-left: 1.5em;
+  margin-left: 1.5em;    /* Indent bullet lists */
 }
 #content li {
   margin-bottom: 0.5em;
 }
-#content blockquote p {
-  margin-bottom: 0.5em;
-}
 
+/* Links inside content */
 #content a {
   color: var(--links);
   text-decoration: none;
@@ -264,22 +326,12 @@ body {
   text-decoration: underline;
 }
 
-#content img,
-#content video {
+/* Images never overflow their container */
+#content img {
   max-width: 100%;
 }
 
-#content h1 {
-  font-size: 2.8em;
-  font-weight: 700;
-  margin-top: 0.5em;
-  margin-bottom: 0.8em;
-  line-height: 1.2;
-  color: var(--fg);
-  border-bottom: 1px solid var(--table-border-color);
-  padding-bottom: 0.3em;
-}
-
+/* Headings inside the content area */
 #content h2,
 #content h3 {
   margin-top: 2em;
@@ -293,13 +345,18 @@ body {
   font-size: 1.5em;
   font-weight: 600;
 }
-#content h4,
-#content h5 {
-  margin-top: 1.5em;
-}
 
+/* ============================================================
+   DESKTOP NAVIGATION ARROWS  (the big left/right arrows)
+   These are fixed to the sides of the screen so they stay
+   visible as you scroll — like mdBook's chapter navigation.
+   They are hidden on smaller screens (see @media below).
+   ============================================================ */
+
+/* Invisible full-screen container that holds both arrows.
+   pointer-events: none means clicks pass through it to the page behind. */
 .nav-wide-wrapper {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -307,53 +364,70 @@ body {
   pointer-events: none;
 }
 
+/* Each individual arrow link */
 .nav-chapters {
   font-size: 2.5em;
   text-align: center;
   text-decoration: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: fixed;    /* Stays on screen while scrolling */
+  top: 0;
+  bottom: 0;          /* Stretches the full height of the screen */
   margin: 0;
   max-width: 150px;
   min-width: 90px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Centers the arrow icon vertically */
   color: var(--icons);
   transition:
     color 0.2s,
     background-color 0.2s;
-  border-radius: 8px;
-  padding: 20px;
-  pointer-events: auto;
+  border-radius: 0;
+  pointer-events: auto; /* Re-enable clicks on the arrow (overrides the wrapper) */
   z-index: 210;
 }
 
+/* Semi-transparent background appears when you hover over an arrow */
 .nav-chapters:hover {
   text-decoration: none;
-  background-color: var(--theme-hover);
+  background-color: color-mix(in srgb, var(--theme-hover) 40%, transparent);
   color: var(--icons-hover);
 }
 
-.nav-chapters svg {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
+/* Image icon inside an arrow (chevron-left.svg / chevron-right.svg) */
+.nav-chapters img {
+  width: 2em;   /* Makes the arrow icon larger than default */
+  height: 2em;
+  transition: filter 0.2s;
 }
 
+/* Turn arrow icon black on hover */
+.nav-chapters:hover img {
+  filter: brightness(0);
+}
+
+/* Previous arrow sits on the LEFT edge */
 .nav-chapters.previous {
   left: 0;
 }
+/* Next arrow sits on the RIGHT edge */
 .nav-chapters.next {
   right: 0;
 }
 
+/* ============================================================
+   MOBILE NAVIGATION ARROWS
+   On small screens the side arrows are hidden. Instead, these
+   smaller arrow buttons appear below the content.
+   ============================================================ */
+
+/* The wrapper around the mobile arrows — hidden on desktop */
 .nav-wrapper {
   margin-top: 50px;
-  display: none;
+  display: none; /* Hidden by default; shown on small screens via @media below */
 }
 
+/* Each mobile arrow button */
 .mobile-nav-chapters {
   font-size: 2.5em;
   text-align: center;
@@ -371,16 +445,11 @@ body {
     background-color 0.2s;
 }
 
-.mobile-nav-chapters svg {
-  width: 0.7em;
-  height: 0.7em;
-  fill: currentColor;
-}
-
 .mobile-nav-chapters:hover {
   color: var(--icons-hover);
 }
 
+/* Float previous to the left, next to the right */
 .previous {
   float: left;
 }
@@ -388,6 +457,11 @@ body {
   float: right;
 }
 
+/* ============================================================
+   RESPONSIVE BREAKPOINT — small screens (max 1080px wide)
+   On tablets/phones, hide the big side arrows and show
+   the smaller mobile arrows below the content instead.
+   ============================================================ */
 @media only screen and (max-width: 1080px) {
   .nav-wide-wrapper {
     display: none;
@@ -397,95 +471,54 @@ body {
   }
 }
 
-blockquote {
-  margin: 25px 0;
-  padding: 15px 25px;
-  color: var(--fg);
-  background-color: var(--quote-bg);
-  border-left: 4px solid var(--sidebar-active);
-  border-radius: 0 4px 4px 0;
-  line-height: 1.6;
-}
-
+/* ============================================================
+   NOTE BOXES
+   A colored left border and light background make these
+   stand out from regular text — used for key info blocks.
+   ============================================================ */
 .note {
   margin: 25px 0;
   padding: 15px 25px;
   color: var(--fg);
   background-color: var(--quote-bg);
-  border-left: 4px solid var(--sidebar-active);
+  border-left: 4px solid var(--sidebar-active); /* Colored accent bar on the left */
   border-radius: 0 4px 4px 0;
   line-height: 1.6;
 }
 
-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-table td {
-  padding: 3px 20px;
-  border: 1px var(--table-border-color) solid;
-}
-table thead {
-  background: var(--table-header-bg);
-}
-table thead td {
-  font-weight: 700;
-  border: none;
-}
-table thead th {
-  padding: 3px 20px;
-}
-table thead tr {
-  border: 1px var(--table-header-bg) solid;
-}
-table tbody tr:nth-child(2n) {
-  background: var(--table-alternate-bg);
-}
-
-code {
-  font-family: var(--mono-font);
-  font-size: var(--code-font-size);
-}
-
-:not(pre) > code {
-  color: var(--inline-code-color);
-  background-color: var(--quote-bg);
-  padding: 0.1em 0.3em;
-  border-radius: 3px;
-}
-
-pre > code {
-  display: block;
-  padding: 1rem;
-  overflow-x: auto;
-}
+/* ============================================================
+   SIDEBAR OVERLAY  (mobile only — max 619px wide)
+   When the sidebar is open on a phone, a dark transparent
+   overlay covers the page. Tapping it closes the sidebar.
+   ============================================================ */
 @media only screen and (max-width: 619px) {
+  /* Show the overlay only when the sidebar checkbox is checked (open) */
   #sidebar-toggle-anchor:checked ~ .sidebar-overlay {
     display: block;
   }
 
   .sidebar-overlay {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 199;
-    background: rgba(0, 0, 0, 0.4);
+    z-index: 199;                    /* Just below the sidebar (z-index 200) */
+    background: rgba(0, 0, 0, 0.4); /* Black at 40% opacity */
   }
 }
 
+/* ============================================================
+   SIDEBAR OPEN — shift the previous arrow on desktop
+   When the sidebar is open on a wide screen, move the left
+   arrow so it doesn't overlap the sidebar panel.
+   ============================================================ */
 @media only screen and (min-width: 620px) {
   #sidebar-toggle-anchor:checked
     ~ .page-wrapper
     .nav-wide-wrapper
     .nav-chapters.previous {
-    left: var(--sidebar-width);
+    left: var(--sidebar-width); /* Push arrow right by the sidebar's width */
   }
 }
-
-.images {
-  border-radius: 10px;
-}
-
