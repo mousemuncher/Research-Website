@@ -8,53 +8,12 @@
     <!--External CSS-->
     <link rel="stylesheet" href="css/style.css" />
 
-    <!--Internal CSS-->
-    <style>
-      .hero {
-        background-color: var(--quote-bg);
-        border-left: 4px solid var(--sidebar-active);
-        padding: 2rem 2.5rem;
-        margin-bottom: 2rem;
-        border-radius: 0 8px 8px 0;
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: var(--fg);
-      }
-
-      .hero .meta {
-        font-size: 1.4rem;
-        color: var(--icons);
-      }
-
-      .member-list {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-        margin: 1rem 0 2rem;
-      }
-
-      .member-list li {
-        background-color: var(--quote-bg);
-        border: 1px solid var(--table-border-color);
-        border-radius: 6px;
-        padding: 0.6rem 1.2rem;
-        font-size: 1.4rem;
-      }
-
-      .images {
-        border-radius: 10px;
-      }
-    </style>
+    <!--Internal CSS - nothing page-specific needed here-->
   </head>
   <body>
     <!--Input -->
-    <input type="checkbox" id="sidebar-toggle-anchor" checked />
+    <input type="checkbox" id="sidebar-toggle-anchor" />
+    <label class="sidebar-overlay" for="sidebar-toggle-anchor"></label>
 
     <!--SideBar-->
     <nav class="sidebar">
@@ -62,7 +21,7 @@
         <ol class="chapter">
           <li class="chapter-item">
             <span class="chapter-link-wrapper">
-              <a href="index.html" class="active"> Home </a>
+              <a href="index.html"> Home </a>
             </span>
           </li>
 
@@ -71,7 +30,7 @@
           <!--Background SideBar Link -->
           <li class="chapter-item">
             <span class="chapter-link-wrapper">
-              <a href="background.html">Background of the Study</a>
+              <a href="background.html" class="active">Background of the Study</a>
             </span>
           </li>
 
@@ -110,19 +69,11 @@
       <!--Wide Nav Arrows -->
       <nav class="nav-wide-wrapper" aria-label="Page navigation">
         <!--Previous Arrow -->
-        <a
-          href="index.html"
-          class="nav-chapters previous"
-          title="Previous chapter"
-        >
+        <a href="index.html" class="nav-chapters previous" title="Previous chapter">
           <img src="images/chevron-left.svg" alt="previous" />
         </a>
         <!--Next Arrow -->
-        <a
-          href="problem.html"
-          class="nav-chapters next"
-          title="Previous chapter"
-        >
+        <a href="problem.html" class="nav-chapters next" title="Next chapter">
           <img src="images/chevron-right.svg" alt="next" />
         </a>
       </nav>
@@ -134,83 +85,60 @@
             <h2 id="introduction">Introduction</h2>
             <div class="note">
               <p style="padding: 0.8rem 0; text-align: justify">
-                Water quality is commonly assessed using turbidity, dissolved
-                oxygen (DO), and pH. Turbidity refers to the cloudiness of water
-                caused by suspended particles such as clay, silt, algae, and
-                microorganisms, and is measured in Nephelometric Turbidity Units
-                (NTU) (U.S. Geological Survey [USGS], n.d.). Turbidity is
-                crucial for solar water disinfection (SODIS) because pathogen
-                inactivation depends on ultraviolet (UV) light penetration.
-                Measuring turbidity in Poso water allows evaluation of how
-                effectively different seed coagulants improve water clarity,
-                directly influencing SODIS efficiency. Dissolved oxygen (DO),
-                measured in mg/L, indicates oxygen availability for aquatic
-                organisms, and monitoring DO ensures that natural seed
-                coagulants do not reduce oxygen levels or promote bacterial
-                growth (Akvopedia, n.d.). pH, which measures water acidity or
-                alkalinity, affects chemical reactions, microbial activity, and
-                coagulant performance (World Health Organization [WHO], 2017).
-                Regular pH monitoring ensures coagulant application does not
-                compromise chemical balance or drinking water safety. Together,
-                these variables provide a comprehensive assessment of water
-                quality before and after treatment. According to the World
-                Health Organization (2017), potable water should have turbidity
-                below 5 NTU, pH between 6.5 and 8.5, and dissolved oxygen (DO)
-                of at least 5 mg/L, which provides a benchmark for determining
-                whether treated water is suitable for possible potable use.
+                Water quality is commonly assessed using turbidity, dissolved oxygen (DO), and pH.
+                Turbidity refers to the cloudiness of water caused by suspended particles such as
+                clay, silt, algae, and microorganisms, and is measured in Nephelometric Turbidity
+                Units (NTU) (U.S. Geological Survey [USGS], n.d.). Turbidity is crucial for solar
+                water disinfection (SODIS) because pathogen inactivation depends on ultraviolet (UV)
+                light penetration. Measuring turbidity in Poso water allows evaluation of how
+                effectively different seed coagulants improve water clarity, directly influencing
+                SODIS efficiency. Dissolved oxygen (DO), measured in mg/L, indicates oxygen
+                availability for aquatic organisms, and monitoring DO ensures that natural seed
+                coagulants do not reduce oxygen levels or promote bacterial growth (Akvopedia,
+                n.d.). pH, which measures water acidity or alkalinity, affects chemical reactions,
+                microbial activity, and coagulant performance (World Health Organization [WHO],
+                2017). Regular pH monitoring ensures coagulant application does not compromise
+                chemical balance or drinking water safety. Together, these variables provide a
+                comprehensive assessment of water quality before and after treatment. According to
+                the World Health Organization (2017), potable water should have turbidity below 5
+                NTU, pH between 6.5 and 8.5, and dissolved oxygen (DO) of at least 5 mg/L, which
+                provides a benchmark for determining whether treated water is suitable for possible
+                potable use.
               </p>
-                <img 
-                  src="images/meth.png" 
-                  alt="multimedia" 
-                  style="border-radius: 10px;"
-                > 
+              <img src="images/meth.png" alt="multimedia" style="border-radius: 10px" />
               <p style="padding: 0.8rem 0; text-align: justify">
-                Access to safe drinking water is challenging in communities that
-                rely on manually pumped sources like Poso water. Solar water
-                disinfection (SODIS) becomes less effective in turbid water
-                because suspended particles block ultraviolet (UV) light,
-                reducing its ability to inactivate pathogens (McGuigan et al.,
-                2012). Clearer water allows UV to penetrate deeper, enhancing
-                disinfection efficiency. Natural seed extracts offer an
-                eco-friendly solution to improve water clarity before SODIS.
-                Research shows that the seeds of Moringa (Moringa oleifera)
-                contain cationic proteins that promote flocculation, helping
-                particles clump together and settle, which improves turbidity
-                removal (Ndabigengesere et al., 2025). Seeds of Tamarind
-                (Tamarindus indica) also act as natural coagulants; blended
-                tamarind seed powder has been shown to reduce turbidity
-                effectively by trapping particles, likely due to its
-                polysaccharide content (Singh et al., 2020). In studies
-                involving Jackfruit (Artocarpus heterophyllus), seed powder has
-                been tested for coagulation effects in water treatment, with
-                some research showing potential turbidity reduction (Kumar &
-                Singh, 2020). Including these seeds in the study helps determine
-                which is most effective under household-level water treatment
-                conditions, where simple, low-cost options are needed to make
-                SODIS work better in real-world settings.
+                Access to safe drinking water is challenging in communities that rely on manually
+                pumped sources like Poso water. Solar water disinfection (SODIS) becomes less
+                effective in turbid water because suspended particles block ultraviolet (UV) light,
+                reducing its ability to inactivate pathogens (McGuigan et al., 2012). Clearer water
+                allows UV to penetrate deeper, enhancing disinfection efficiency. Natural seed
+                extracts offer an eco-friendly solution to improve water clarity before SODIS.
+                Research shows that the seeds of Moringa (Moringa oleifera) contain cationic
+                proteins that promote flocculation, helping particles clump together and settle,
+                which improves turbidity removal (Ndabigengesere et al., 2025). Seeds of Tamarind
+                (Tamarindus indica) also act as natural coagulants; blended tamarind seed powder has
+                been shown to reduce turbidity effectively by trapping particles, likely due to its
+                polysaccharide content (Singh et al., 2020). In studies involving Jackfruit
+                (Artocarpus heterophyllus), seed powder has been tested for coagulation effects in
+                water treatment, with some research showing potential turbidity reduction (Kumar &
+                Singh, 2020). Including these seeds in the study helps determine which is most
+                effective under household-level water treatment conditions, where simple, low-cost
+                options are needed to make SODIS work better in real-world settings.
               </p>
-                <img 
-                  src="images/water.jpg" 
-                  alt="multimedia" 
-                  style="border-radius: 10px;"
-                > 
+              <img src="images/water.jpg" alt="multimedia" style="border-radius: 10px" />
               <p style="padding: 0.8rem 0; text-align: justify">
-                The effectiveness of seed-based coagulants has been demonstrated
-                in prior research. Ndabigengesere et al. (2025) reported that
-                Moringa oleifera seeds reduced water cloudiness by up to 90%,
-                supporting the methodology for seed preparation and dosing.
-                Singh et al. (2020) found that Tamarindus indica seeds clarified
-                water without significantly altering pH, justifying the
-                inclusion of pH and DO measurements alongside turbidity. Kumar
-                and Singh (2020) observed that Artocarpus heterophyllus seeds
-                slightly reduced turbidity, validating their use in a
-                comparative study. Following Department of Science and
-                Technology (DOST, 2021) guidelines, this study uses a positive
-                control (distilled water) and a negative control (untreated Poso
-                water), with measurements taken before and after SODIS. These
-                studies collectively guide the experimental design, including
-                coagulant selection, treatment intervals, and controls, ensuring
-                that observed effects are attributable to the seed treatments
+                The effectiveness of seed-based coagulants has been demonstrated in prior research.
+                Ndabigengesere et al. (2025) reported that Moringa oleifera seeds reduced water
+                cloudiness by up to 90%, supporting the methodology for seed preparation and dosing.
+                Singh et al. (2020) found that Tamarindus indica seeds clarified water without
+                significantly altering pH, justifying the inclusion of pH and DO measurements
+                alongside turbidity. Kumar and Singh (2020) observed that Artocarpus heterophyllus
+                seeds slightly reduced turbidity, validating their use in a comparative study.
+                Following Department of Science and Technology (DOST, 2021) guidelines, this study
+                uses a positive control (distilled water) and a negative control (untreated Poso
+                water), with measurements taken before and after SODIS. These studies collectively
+                guide the experimental design, including coagulant selection, treatment intervals,
+                and controls, ensuring that observed effects are attributable to the seed treatments
                 and supporting scientifically valid results.
               </p>
             </div>
@@ -223,11 +151,7 @@
               title="Previous chapter"
               aria-label="Previous chapter"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path
-                  d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
-                />
-              </svg>
+              <img src="images/chevron-left.svg" alt="previous" />
             </a>
             <a
               href="problem.html"
@@ -235,11 +159,7 @@
               title="Next chapter"
               aria-label="Next chapter"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                <path
-                  d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
-                />
-              </svg>
+              <img src="images/chevron-right.svg" alt="previous" />
             </a>
             <div style="clear: both"></div>
           </nav>
