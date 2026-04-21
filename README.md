@@ -10,17 +10,40 @@ assessment for my computer education class.
 ---
 
 ## Research Topic
-
-> [Write your research title here]
+SUNSATIONAL SEEDS: A Comparative Study on the Effect of Moringa (Moringa oleifera),
+Tamarind eTamarindus indica), and Jackfruit (Artocarpus heterophyllus)
+Seed Extracts on Water Turbidity (NTU), Dissolved Oxygen (mg/L), and pH
+in Solar Water Disinfection of Poso Water
 
 **Study Summary:**
-[One or two sentences describing what the study is about and what it investigates]
-
+This research project investigates whether seed extracts from
+three tropical plants, moringa, tamarind, and jackfruit, can improve water quality when
+used alongside solar disinfection (a simple UV-based water purification method).
+The study measures how these natural seed extracts affect three key water quality indicators:
+turbidity (cloudiness), dissolved oxygen levels, and pH balance in treating water from Poso.
 ---
 
 ## File Structure
 ```bash
-
+ .
+├──  css
+│   └──  style.css
+├──  images
+│   ├── 󰕙 chevron-left.svg
+│   ├── 󰕙 chevron-right.svg
+│   ├──  john.png
+│   ├──  me.jpg
+│   ├──  me2.jpg
+│   ├── 󰕙 menu.svg
+│   ├──  meth.png
+│   ├──  poso.png
+│   ├──  sodis.png
+│   └──  water.jpg
+├──  background.html
+├──  index.html
+├──  problem.html
+├── 󰂺 README.md
+└──  scope.html
 ```
 
 ## How to Open
